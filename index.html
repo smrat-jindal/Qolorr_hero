@@ -1,49 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Make sure your title is descriptive -->
-    <title>Your Luxury Brand - Official Site</title>
+    <title>Qolorr - Luxury Apparel</title>
 
-    
+    <script src="https://cdn.tailwindcss.com"></script>
 
- 
-
-    <!-- Option 2: Using PNG files (modern) -->
-    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32"> 
-    <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
-
-    
-
-    <!-- Your existing CSS and Font links -->
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.25rem; /* Adjust size as needed */
+        line-height: 1;
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Icon content mapping - add more as needed */
+      .lucide-search:before { content: "\f3c7"; } /* Example, replace with actual codepoint if needed */
+      .lucide-user:before { content: "\f477"; }
+      .lucide-shopping-bag:before { content: "\f3e1"; }
+      .lucide-arrow-right:before { content: "\f142"; }
+
+       /* Basic Scroll Animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // Define accent colors if needed
+              // accent: '#yourColorCode',
+            }
+          }
+        }
+      }
+    </script>
 </head>
+<body class="font-sans antialiased text-gray-900 bg-white">
 
-<body style="background-color: #F4E9E9;"> <!-- Added inline style for pink bg for clarity, CSS file is better -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-semibold tracking-tight">QOLORR</a>
 
-    <header class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <!-- Wrap Logo and Headline -->
-            <div class="hero-title-container">
-                 <!-- <img src="logo.png" alt="Your Luxury Brand Logo" class="hero-logo">  <<< ADDED LOGO -->
-                 <h1 class="hero-headline">Timeless Elegance, Redefined</h1>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#shop" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop</a>
+                <a href="#collections" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Collections</a>
+                <a href="#stories" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Stories</a>
+                <a href="#lookbook" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Lookbook</a>
             </div>
-            <!-- End Wrap -->
-            <p class="hero-subheadline">Discover the new collection of luxury apparel.</p>
-            <a href="#shop" class="btn btn-primary hero-cta">Explore Collection</a>
-        </div>
+
+            <div class="flex items-center space-x-4">
+                <button aria-label="Search" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-search" aria-hidden="true">&#xe8b6;</i> </button>
+                <button aria-label="Account" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-user" aria-hidden="true">&#xf007;</i> </button>
+                <button aria-label="Shopping Bag" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-shopping-bag" aria-hidden="true">&#xf290;</i> </button>
+                <button class="md:hidden text-gray-600 hover:text-gray-900">
+                    </button>
+            </div>
+        </nav>
     </header>
 
-    <section id="shop" style="height: 100vh; padding: 50px; background-color: white; margin: 40px auto; max-width: 1100px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-        <h2>Shop Section Placeholder</h2>
-        <p>Your product grid or featured items would start here.</p>
-    </section>
+    <main>
 
-    <script src="script.js"></script>
+        <section id="hero" class="min-h-screen flex items-center justify-center bg-gray-100 relative overflow-hidden">
+            <img
+                src="images\2.jpg"
+                alt="Elegant Qolorr apparel showcase"
+                class="absolute inset-0 w-full h-full object-cover z-0"
+                onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/e2e8f0/64748b?text=Image+Error';"
+            >
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+
+            <div class="relative z-20 text-center text-white p-8 reveal">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
+                    Timeless Elegence, Redefined.
+                </h1>
+                <p class="text-lg md:text-xl font-light mb-8 max-w-2xl mx-auto">
+                    Explore the latest collection where artistry meets apparel.
+                </p>
+                <div class="space-x-4">
+                    <a href="#collections" class="inline-flex items-center text-sm font-medium text-white hover:opacity-80 transition-opacity">
+                        Discover the Collection <i class="lucide lucide-arrow-right ml-1 text-xs" aria-hidden="true">&#xe5c8;</i>
+                    </a>
+                    </div>
+            </div>
+        </section>
+
+        <section id="design-focus" class="py-16 lg:py-24 bg-white reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-1 md:order-2">
+                     <img
+                        src="images\6.avif"
+                        alt="Close-up detail of Qolorr garment craftsmanship"
+                        class="w-full h-auto object-cover rounded-lg shadow-md"
+                        onerror="this.onerror=null; this.src='https://placehold.co/800x600/f3f4f6/9ca3af?text=Image+Error';"
+                    >
+                </div>
+                <div class="order-2 md:order-1 text-center md:text-left">
+                    <h2 class="text-3xl sm:text-4xl font-semibold mb-4 tracking-tight">
+                        Precision in Every Seam.
+                    </h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Our commitment to quality is woven into every thread. Discover garments crafted with meticulous attention to detail and unparalleled skill.
+                    </p>
+                    <a href="#process" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors">
+                        Learn About Our Process <i class="lucide lucide-arrow-right ml-1 text-xs" aria-hidden="true">&#xe5c8;</i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="collections" class="py-16 lg:py-24 bg-gray-50 reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-semibold mb-4 tracking-tight">
+                        Versatility, Elevated.
+                    </h2>
+                    <p class="text-gray-600 text-lg max-w-xl mx-auto">
+                        Pieces designed to integrate seamlessly into your life, offering timeless style for any occasion.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group">
+                         <img
+                            src="images\3.jpg"
+                            alt="Model wearing Qolorr outfit 1"
+                            class="w-full h-auto object-cover rounded-lg shadow-md mb-4 transition-transform duration-300 group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x700/e5e7eb/9ca3af?text=Image+Error';"
+                        >
+                        <h3 class="font-medium text-lg mb-1">Signature Coat</h3>
+                        <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop Now <i class="lucide lucide-arrow-right ml-1 text-xs" aria-hidden="true">&#xe5c8;</i></a>
+                    </div>
+                    <div class="group">
+                         <img
+                            src="images\1.jpg"
+                            alt="Model wearing Qolorr outfit 2"
+                            class="w-full h-auto object-cover rounded-lg shadow-md mb-4 transition-transform duration-300 group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x700/d1d5db/6b7280?text=Image+Error';"
+                        >
+                        <h3 class="font-medium text-lg mb-1">Cashmere Knit</h3>
+                         <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop Now <i class="lucide lucide-arrow-right ml-1 text-xs" aria-hidden="true">&#xe5c8;</i></a>
+                    </div>
+                    <div class="group">
+                         <img
+                            src="images\4.jpg"
+                            alt="Model wearing Qolorr outfit 3"
+                            class="w-full h-auto object-cover rounded-lg shadow-md mb-4 transition-transform duration-300 group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x700/9ca3af/4b5563?text=Image+Error';"
+                        >
+                        <h3 class="font-medium text-lg mb-1">Tailored Trousers</h3>
+                         <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop Now <i class="lucide lucide-arrow-right ml-1 text-xs" aria-hidden="true">&#xe5c8;</i></a>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                     <a href="#shop-all" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-700 transition-colors">
+                        Shop All New Arrivals
+                    </a>
+                 </div>
+            </div>
+        </section>
+
+        <section id="stories" class="py-16 lg:py-24 bg-white reveal">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                 <img
+                    src="images\5.avif"
+                    alt="Abstract visual representing the Qolorr brand ethos"
+                    class="w-full max-w-4xl mx-auto h-auto object-cover rounded-lg shadow-md mb-8"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1200x400/e2e8f0/64748b?text=Image+Error';"
+                >
+                <h2 class="text-3xl sm:text-4xl font-semibold mb-4 tracking-tight">
+                    The Essence of Qolorr.
+                </h2>
+                <p class="text-gray-600 mb-6 text-lg max-w-xl mx-auto">
+                    Driven by a passion for timeless design, exceptional quality, and conscious creation.
+                </p>
+                <a href="#philosophy" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors">
+                    Read Our Philosophy <i class="lucide lucide-arrow-right ml-1 text-xs" aria-hidden="true">&#xe5c8;</i>
+                </a>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mx-auto text-center mb-12">
+                 <h3 class="text-xl font-semibold mb-2">Stay Connected</h3>
+                 <p class="text-gray-600 mb-4 text-sm">Get exclusive previews, updates, and inspiration straight to your inbox.</p>
+                 <form class="flex flex-col sm:flex-row gap-2">
+                     <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 sm:text-sm" required>
+                     <button type="submit" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition-colors">Subscribe</button>
+                 </form>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-8">
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Womenswear</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Menswear</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Collections</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Accessories</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">FAQ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Shipping</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Returns</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Size Guide</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Press</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Instagram</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Facebook</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-300 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 Qolorr. All rights reserved.</p>
+                <div class="mt-2 space-x-4">
+                     <a href="#" class="hover:text-gray-900">Privacy Policy</a>
+                     <span>&middot;</span>
+                     <a href="#" class="hover:text-gray-900">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Unobserve after revealing to save resources
+                    // revealObserver.unobserve(entry.target);
+                }
+                // Optional: Add logic to remove 'visible' if element scrolls out of view
+                // else {
+                //     entry.target.classList.remove('visible');
+                // }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Icon mapping (fallback if CSS font doesn't load perfectly or for JS manipulation)
+        // You might need more robust icon handling in a real app
+        document.querySelectorAll('.lucide-search').forEach(el => el.textContent = '\u{f3c7}'); // Example codepoint
+        document.querySelectorAll('.lucide-user').forEach(el => el.textContent = '\u{f477}');
+        document.querySelectorAll('.lucide-shopping-bag').forEach(el => el.textContent = '\u{f3e1}');
+        document.querySelectorAll('.lucide-arrow-right').forEach(el => el.textContent = '\u{f142}');
+
+    </script>
+
 </body>
-</html> 
+</html>
