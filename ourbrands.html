@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Brands - Qolorr</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        /* Using jsdelivr CDN for the font file */
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.25rem; /* Adjust size as needed */
+        line-height: 1;
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Icon content mapping - add more as needed */
+      .lucide-search:before { content: "\f3c7"; } /* Codepoint for 'search' */
+      .lucide-shopping-bag:before { content: "\f3e1"; } /* Codepoint for 'shopping-bag' */
+      .lucide-user:before { content: "\f477"; } /* Codepoint for 'user' */
+      /* Add more icon codepoints if needed */
+
+       /* Basic Scroll Animation (Optional, can be removed if not desired) */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // Define accent colors if needed
+              // accent: '#yourColorCode',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+
+    <header class="sticky top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">QOLORR</a> <div class="hidden md:flex items-center space-x-6">
+                <a href="#shop" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop</a>
+                <a href="#" class="text-sm font-medium text-gray-900">Partners</a> </div>
+
+            <div class="flex items-center space-x-4">
+                <button aria-label="Search" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-search" aria-hidden="true">&#xe8b6;</i> </button>
+                <button aria-label="Shopping Bag" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-shopping-bag" aria-hidden="true">&#xf290;</i> </button>
+                 <button class="px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors">
+                    Login
+                 </button>
+                <button class="md:hidden text-gray-600 hover:text-gray-900">
+                    <i class="lucide lucide-user" aria-hidden="true">&#xf007;</i> </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16"> <section id="brands" class="py-16 lg:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 lg:mb-16 reveal">
+                    <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">
+                        Our Brands
+                    </h1>
+                    </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12 reveal">
+                    <div class="group text-center transition-opacity duration-300 hover:opacity-80">
+                        <a href="#brand-link-1" class="block p-4 bg-gray-50 rounded-lg border border-gray-200/80 hover:shadow-sm">
+                            <img
+                                src="https://placehold.co/200x150/f3f4f6/9ca3af?text=Brand+Logo+1"
+                                alt="Brand Logo 1"
+                                class="w-full h-auto object-contain mx-auto mb-4 max-h-24" onerror="this.onerror=null; this.src='https://placehold.co/200x150/f3f4f6/9ca3af?text=Logo+Error';"
+                            >
+                            <p class="font-medium text-gray-800">Brand Name 1</p>
+                        </a>
+                    </div>
+                    <div class="group text-center transition-opacity duration-300 hover:opacity-80">
+                         <a href="#brand-link-2" class="block p-4 bg-gray-50 rounded-lg border border-gray-200/80 hover:shadow-sm">
+                            <img
+                                src="https://placehold.co/200x150/e5e7eb/6b7280?text=Brand+Logo+2"
+                                alt="Brand Logo 2"
+                                class="w-full h-auto object-contain mx-auto mb-4 max-h-24"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x150/e5e7eb/6b7280?text=Logo+Error';"
+                            >
+                            <p class="font-medium text-gray-800">Brand Name 2</p>
+                        </a>
+                    </div>
+                    <div class="group text-center transition-opacity duration-300 hover:opacity-80">
+                         <a href="#brand-link-3" class="block p-4 bg-gray-50 rounded-lg border border-gray-200/80 hover:shadow-sm">
+                            <img
+                                src="https://placehold.co/200x150/d1d5db/4b5563?text=Brand+Logo+3"
+                                alt="Brand Logo 3"
+                                class="w-full h-auto object-contain mx-auto mb-4 max-h-24"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x150/d1d5db/4b5563?text=Logo+Error';"
+                            >
+                            <p class="font-medium text-gray-800">Brand Name 3</p>
+                        </a>
+                    </div>
+                    <div class="group text-center transition-opacity duration-300 hover:opacity-80">
+                         <a href="#brand-link-4" class="block p-4 bg-gray-50 rounded-lg border border-gray-200/80 hover:shadow-sm">
+                            <img
+                                src="https://placehold.co/200x150/9ca3af/374151?text=Brand+Logo+4"
+                                alt="Brand Logo 4"
+                                class="w-full h-auto object-contain mx-auto mb-4 max-h-24"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x150/9ca3af/374151?text=Logo+Error';"
+                            >
+                            <p class="font-medium text-gray-800">Brand Name 4</p>
+                        </a>
+                    </div>
+                    <div class="group text-center transition-opacity duration-300 hover:opacity-80">
+                         <a href="#brand-link-5" class="block p-4 bg-gray-50 rounded-lg border border-gray-200/80 hover:shadow-sm">
+                            <img
+                                src="https://placehold.co/200x150/6b7280/1f2937?text=Brand+Logo+5"
+                                alt="Brand Logo 5"
+                                class="w-full h-auto object-contain mx-auto mb-4 max-h-24"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x150/6b7280/1f2937?text=Logo+Error';"
+                            >
+                            <p class="font-medium text-gray-800">Brand Name 5</p>
+                        </a>
+                    </div>
+                    <div class="group text-center transition-opacity duration-300 hover:opacity-80">
+                         <a href="#brand-link-6" class="block p-4 bg-gray-50 rounded-lg border border-gray-200/80 hover:shadow-sm">
+                            <img
+                                src="https://placehold.co/200x150/4b5563/e5e7eb?text=Brand+Logo+6"
+                                alt="Brand Logo 6"
+                                class="w-full h-auto object-contain mx-auto mb-4 max-h-24"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x150/4b5563/e5e7eb?text=Logo+Error';"
+                            >
+                            <p class="font-medium text-gray-800">Brand Name 6</p>
+                        </a>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mx-auto text-center mb-12">
+                 <h3 class="text-xl font-semibold mb-2">Stay Connected</h3>
+                 <p class="text-gray-600 mb-4 text-sm">Get exclusive previews, updates, and inspiration straight to your inbox.</p>
+                 <form class="flex flex-col sm:flex-row gap-2">
+                     <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 sm:text-sm" required>
+                     <button type="submit" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition-colors">Subscribe</button>
+                 </form>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-8">
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Womenswear</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Menswear</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Collections</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Accessories</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">FAQ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Shipping</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Returns</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Size Guide</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Press</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Instagram</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Facebook</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-300 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 Qolorr. All rights reserved.</p>
+                <div class="mt-2 space-x-4">
+                     <a href="#" class="hover:text-gray-900">Privacy Policy</a>
+                     <span>&middot;</span>
+                     <a href="#" class="hover:text-gray-900">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Unobserve after revealing to save resources
+                    // revealObserver.unobserve(entry.target);
+                }
+                // Optional: Add logic to remove 'visible' if element scrolls out of view
+                // else {
+                //     entry.target.classList.remove('visible');
+                // }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Icon mapping (fallback if CSS font doesn't load perfectly or for JS manipulation)
+        document.querySelectorAll('.lucide-search').forEach(el => el.textContent = '\u{f3c7}');
+        document.querySelectorAll('.lucide-shopping-bag').forEach(el => el.textContent = '\u{f3e1}');
+        // Add mappings for other icons if needed
+
+    </script>
+
+</body>
+</html>
