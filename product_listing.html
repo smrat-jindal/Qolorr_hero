@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Products - Qolorr</title> <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.25rem; /* Adjust size as needed */
+        line-height: 1;
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Icon content mapping */
+      .lucide-search:before { content: "\f3c7"; }
+      .lucide-shopping-bag:before { content: "\f3e1"; }
+      .lucide-arrow-left:before { content: "\f141"; }
+      .lucide-heart:before { content: "\f273"; } /* Heart icon */
+      .lucide-chevron-left:before { content: "\f19a"; } /* Chevron left */
+      .lucide-chevron-right:before { content: "\f19b"; } /* Chevron right */
+      /* Add more icon codepoints if needed */
+
+       /* Basic Scroll Animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Style for filled heart icon (using JS potentially) */
+      .lucide-heart.filled {
+        /* You might need to use SVG or a different font for filled icons */
+        /* Or toggle classes that change color/style */
+        color: #dc2626; /* Example red color */
+        /* font-variation-settings: 'FILL' 1; /* May work with variable fonts */
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // accent: '#yourColorCode',
+            },
+            aspectRatio: {
+              '3/4': '3 / 4', // Add common aspect ratios
+              '4/3': '4 / 3',
+            },
+          }
+        },
+        // Enable aspect ratio plugin if needed (Tailwind v3+ has it built-in)
+        // plugins: [
+        //   require('@tailwindcss/aspect-ratio'),
+        // ],
+      }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+
+    <header class="sticky top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">QOLORR</a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#shop" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop</a>
+                <a href="brands.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Partners</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button aria-label="Search" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-search" aria-hidden="true">&#xe8b6;</i>
+                </button>
+                <button aria-label="Shopping Bag" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    <i class="lucide lucide-shopping-bag" aria-hidden="true">&#xf290;</i>
+                </button>
+                 <button class="px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors">
+                    Login
+                 </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <div class="mb-8 reveal">
+                <a href="collection.html" class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"> <i class="lucide lucide-arrow-left mr-1 text-xs" aria-hidden="true">&#xe5c4;</i>
+                    Go Back
+                </a>
+            </div>
+
+            <section class="text-center mb-10 lg:mb-12 reveal">
+                <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">
+                    Summer Collection </h1>
+                <p class="text-gray-600 max-w-xl mx-auto text-base leading-relaxed">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. </p>
+            </section>
+
+            <section class="mb-12 lg:mb-16 reveal">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200/80 overflow-hidden group transition-shadow duration-300 hover:shadow-lg">
+                        <div class="relative">
+                            <a href="#product-link-1"> <img
+                                    src="https://placehold.co/400x533/e0e7ff/4338ca?text=Product+1" alt="Oversized Striped Shirt 1" class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-300 group-hover:scale-105"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/400x533/cccccc/666666?text=Img+Error';"
+                                >
+                            </a>
+                            <button aria-label="Add to Wishlist" class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full text-gray-600 hover:text-red-500 hover:bg-white transition-colors wishlist-button">
+                                <i class="lucide lucide-heart text-lg" aria-hidden="true">&#xe8da;</i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-base font-medium text-gray-800 mb-1 truncate">
+                                <a href="#product-link-1" class="hover:text-indigo-600">Oversized Striped Shirt</a> </h3>
+                            <p class="text-sm text-gray-500 mb-2">Category</p> <p class="text-base font-semibold text-gray-900">Rs 40.00</p> </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200/80 overflow-hidden group transition-shadow duration-300 hover:shadow-lg">
+                        <div class="relative">
+                             <a href="#product-link-2">
+                                <img
+                                    src="https://placehold.co/400x533/fef08a/ca8a04?text=Product+2"
+                                    alt="Oversized Striped Shirt 2"
+                                    class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-300 group-hover:scale-105"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/400x533/cccccc/666666?text=Img+Error';"
+                                >
+                            </a>
+                            <button aria-label="Add to Wishlist" class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full text-gray-600 hover:text-red-500 hover:bg-white transition-colors wishlist-button">
+                                <i class="lucide lucide-heart text-lg" aria-hidden="true">&#xe8da;</i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-base font-medium text-gray-800 mb-1 truncate">
+                                <a href="#product-link-2" class="hover:text-indigo-600">Another Stylish Shirt</a>
+                            </h3>
+                             <p class="text-sm text-gray-500 mb-2">Category</p>
+                            <p class="text-base font-semibold text-gray-900">Rs 45.00</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200/80 overflow-hidden group transition-shadow duration-300 hover:shadow-lg">
+                        <div class="relative">
+                             <a href="#product-link-3">
+                                <img
+                                    src="https://placehold.co/400x533/dcfce7/166534?text=Product+3"
+                                    alt="Oversized Striped Shirt 3"
+                                    class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-300 group-hover:scale-105"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/400x533/cccccc/666666?text=Img+Error';"
+                                >
+                            </a>
+                            <button aria-label="Add to Wishlist" class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full text-gray-600 hover:text-red-500 hover:bg-white transition-colors wishlist-button">
+                                <i class="lucide lucide-heart text-lg" aria-hidden="true">&#xe8da;</i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-base font-medium text-gray-800 mb-1 truncate">
+                                <a href="#product-link-3" class="hover:text-indigo-600">Chic Blouse</a>
+                            </h3>
+                             <p class="text-sm text-gray-500 mb-2">Category</p>
+                            <p class="text-base font-semibold text-gray-900">Rs 50.00</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200/80 overflow-hidden group transition-shadow duration-300 hover:shadow-lg">
+                        <div class="relative">
+                             <a href="#product-link-4">
+                                <img
+                                    src="https://placehold.co/400x533/fee2e2/9f1239?text=Product+4"
+                                    alt="Oversized Striped Shirt 4"
+                                    class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-300 group-hover:scale-105"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/400x533/cccccc/666666?text=Img+Error';"
+                                >
+                            </a>
+                            <button aria-label="Add to Wishlist" class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full text-gray-600 hover:text-red-500 hover:bg-white transition-colors wishlist-button">
+                                <i class="lucide lucide-heart text-lg" aria-hidden="true">&#xe8da;</i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-base font-medium text-gray-800 mb-1 truncate">
+                                <a href="#product-link-4" class="hover:text-indigo-600">Casual Tee</a>
+                            </h3>
+                             <p class="text-sm text-gray-500 mb-2">Category</p>
+                            <p class="text-base font-semibold text-gray-900">Rs 35.00</p>
+                        </div>
+                    </div>
+
+                    </div>
+            </section>
+
+            <nav aria-label="Pagination" class="flex justify-center items-center space-x-3 reveal">
+                <button aria-label="Previous Page" class="p-2 rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled> <i class="lucide lucide-chevron-left text-lg" aria-hidden="true">&#xe60a;</i>
+                </button>
+                <span class="text-sm text-gray-700">Page 1 of 5</span> <button aria-label="Next Page" class="p-2 rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
+                    <i class="lucide lucide-chevron-right text-lg" aria-hidden="true">&#xe60b;</i>
+                </button>
+            </nav>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-16 pb-8 mt-16 lg:mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mx-auto text-center mb-12">
+                 <h3 class="text-xl font-semibold mb-2">Stay Connected</h3>
+                 <p class="text-gray-600 mb-4 text-sm">Get exclusive previews, updates, and inspiration straight to your inbox.</p>
+                 <form class="flex flex-col sm:flex-row gap-2">
+                     <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 sm:text-sm" required>
+                     <button type="submit" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition-colors">Subscribe</button>
+                 </form>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-8">
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Womenswear</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Menswear</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Collections</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Accessories</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">FAQ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Shipping</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Returns</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Size Guide</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Press</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Instagram</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Facebook</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-300 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 Qolorr. All rights reserved.</p>
+                <div class="mt-2 space-x-4">
+                     <a href="#" class="hover:text-gray-900">Privacy Policy</a>
+                     <span>&middot;</span>
+                     <a href="#" class="hover:text-gray-900">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // revealObserver.unobserve(entry.target); // Optional
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Wishlist Button Toggle (Example)
+        const wishlistButtons = document.querySelectorAll('.wishlist-button');
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const heartIcon = button.querySelector('.lucide-heart');
+                heartIcon.classList.toggle('filled'); // Toggle filled state class
+                // Add actual wishlist logic here (e.g., API call)
+                console.log('Wishlist button clicked!');
+            });
+        });
+
+        // Icon mapping (ensure icons render correctly)
+        document.querySelectorAll('.lucide-search').forEach(el => el.textContent = '\u{f3c7}');
+        document.querySelectorAll('.lucide-shopping-bag').forEach(el => el.textContent = '\u{f3e1}');
+        document.querySelectorAll('.lucide-arrow-left').forEach(el => el.textContent = '\u{f141}');
+        document.querySelectorAll('.lucide-heart').forEach(el => el.textContent = '\u{f273}');
+        document.querySelectorAll('.lucide-chevron-left').forEach(el => el.textContent = '\u{f19a}');
+        document.querySelectorAll('.lucide-chevron-right').forEach(el => el.textContent = '\u{f19b}');
+
+    </script>
+
+</body>
+</html>
