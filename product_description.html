@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Qolorr</title> <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.25rem; /* Adjust size as needed */
+        line-height: 1;
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Icon content mapping */
+      .lucide-search:before { content: "\f3c7"; }
+      .lucide-shopping-bag:before { content: "\f3e1"; }
+      .lucide-arrow-left:before { content: "\f141"; }
+      .lucide-star:before { content: "\f448"; } /* Star icon */
+      .lucide-heart:before { content: "\f273"; } /* Heart icon */
+      .lucide-share-2:before { content: "\f3e9"; } /* Share icon */
+      .lucide-sliders-horizontal:before { content: "\f42f"; } /* Customize icon */
+      .lucide-chevron-right:before { content: "\f19b"; } /* Chevron right */
+      /* Add more icon codepoints if needed */
+
+       /* Basic Scroll Animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Style for filled heart icon */
+      .lucide-heart.filled { color: #dc2626; }
+
+      /* Style for active tab */
+      .tab-button.active {
+        border-color: #111827; /* Example: black border */
+        color: #111827;
+        font-weight: 500;
+      }
+      /* Style for active color swatch */
+      .color-swatch.active {
+        outline: 2px solid #111827;
+        outline-offset: 2px;
+      }
+       /* Style for filled star */
+      .lucide-star.filled {
+        color: #facc15; /* yellow-500 */
+        /* Use SVG or font variation settings for actual fill if needed */
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // accent: '#yourColorCode',
+            },
+            aspectRatio: {
+              '1': '1', // Square
+              '3/4': '3 / 4',
+              '4/3': '4 / 3',
+            },
+          }
+        },
+        // plugins: [require('@tailwindcss/aspect-ratio')], // Uncomment if needed
+      }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+
+    <header class="sticky top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">QOLORR</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#shop" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Shop</a>
+                <a href="brands.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Partners</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button aria-label="Search" class="text-gray-600 hover:text-gray-900 transition-colors"><i class="lucide lucide-search" aria-hidden="true">&#xe8b6;</i></button>
+                <button aria-label="Shopping Bag" class="text-gray-600 hover:text-gray-900 transition-colors"><i class="lucide lucide-shopping-bag" aria-hidden="true">&#xf290;</i></button>
+                <button class="px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors">Login</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <div class="mb-6 reveal">
+                <a href="products.html" class="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"> <i class="lucide lucide-arrow-left mr-1 text-xs" aria-hidden="true">&#xe5c4;</i>
+                    Go Back
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+
+                <section class="reveal">
+                    <div class="mb-4">
+                        <img id="main-product-image"
+                             src="https://placehold.co/600x800/fef08a/ca8a04?text=Main+Product+Image" alt="Damaris Sitting Room Chair - Main View" class="w-full h-auto object-cover rounded-lg shadow-md aspect-[3/4]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x800/cccccc/666666?text=Img+Error';">
+                    </div>
+                    <div class="flex space-x-3 overflow-x-auto pb-2">
+                        <button class="thumbnail-button flex-shrink-0" data-image="https://placehold.co/600x800/fef08a/ca8a04?text=Main+Product+Image">
+                            <img src="https://placehold.co/100x133/fef08a/ca8a04?text=Thumb+1" alt="Thumbnail 1" class="w-20 h-auto object-cover rounded-md border-2 border-transparent hover:border-gray-400 transition">
+                        </button>
+                        <button class="thumbnail-button flex-shrink-0" data-image="https://placehold.co/600x800/e0e7ff/4338ca?text=Side+View">
+                            <img src="https://placehold.co/100x133/e0e7ff/4338ca?text=Thumb+2" alt="Thumbnail 2" class="w-20 h-auto object-cover rounded-md border-2 border-transparent hover:border-gray-400 transition">
+                        </button>
+                         <button class="thumbnail-button flex-shrink-0" data-image="https://placehold.co/600x800/dcfce7/166534?text=Back+View">
+                            <img src="https://placehold.co/100x133/dcfce7/166534?text=Thumb+3" alt="Thumbnail 3" class="w-20 h-auto object-cover rounded-md border-2 border-transparent hover:border-gray-400 transition">
+                        </button>
+                         <button class="thumbnail-button flex-shrink-0" data-image="https://placehold.co/600x800/fee2e2/9f1239?text=Detail+View">
+                            <img src="https://placehold.co/100x133/fee2e2/9f1239?text=Thumb+4" alt="Thumbnail 4" class="w-20 h-auto object-cover rounded-md border-2 border-transparent hover:border-gray-400 transition">
+                        </button>
+                        </div>
+                </section>
+
+                <section class="reveal">
+                    <p class="text-sm text-gray-500 mb-1">60-0774</p> <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Damaris - Sitting Room Chair</h1> <div class="flex items-center space-x-3 mb-4 text-sm text-gray-600">
+                        <span>230 Sold</span>
+                        <span class="text-gray-300">|</span>
+                        <div class="flex items-center">
+                            <span>4.8</span>
+                            <i class="lucide lucide-star filled ml-1 text-base" aria-hidden="true">&#xea27;</i> </div>
+                    </div>
+
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        An exceptional occasional chair with slim arm rests, styled with a reclined back for supreme comfort. The metal tipped flaring legs add a decorative flourish to this elegant classic. Also available with a quilted fabric back (60-0776).
+                    </p>
+
+                    <div class="border-b border-gray-200 mb-6">
+                        <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                            <button class="tab-button active whitespace-nowrap py-3 px-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300" data-target="description-panel">
+                                Description
+                            </button>
+                            <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300" data-target="specification-panel">
+                                Specification
+                            </button>
+                             <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300" data-target="reviews-panel">
+                                Reviews
+                            </button>
+                        </nav>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="description-panel" class="space-y-5 text-sm text-gray-700 leading-relaxed">
+                             <div>
+                                <h3 class="font-medium text-gray-900 mb-1">Model</h3>
+                                <p>W70 x D80 x H85 cm.</p>
+                             </div>
+                             <div>
+                                <h3 class="font-medium text-gray-900 mb-1">Details</h3>
+                                <ul class="list-disc list-outside space-y-1 pl-5">
+                                    <li>Doweled mortise and tenon frame in solid Mahogany from certified source.</li>
+                                    <li>Solid certified Mahogany.</li>
+                                    <li>Available in a selection of finishes.</li>
+                                    <li>Tight seat undersupport with high-density upholstery fill.</li>
+                                </ul>
+                             </div>
+                              <div>
+                                <h3 class="font-medium text-gray-900 mb-1">Additional Info</h3>
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+                                    <span>Arm Height: 54 cm</span>
+                                    <span>Seat Width: 67 cm</span>
+                                    <span>Seat Depth: 54 cm</span>
+                                    <span>Seat Height: 40 cm</span>
+                                </div>
+                             </div>
+                        </div>
+                        <div id="specification-panel" class="hidden space-y-5 text-sm text-gray-700 leading-relaxed">
+                            <p>Specification details go here. Provide detailed specs like materials, weight, dimensions, care instructions, etc.</p>
+                            <ul class="list-disc list-outside space-y-1 pl-5">
+                                <li>Material: Solid Mahogany, Fabric Blend</li>
+                                <li>Weight: 15kg</li>
+                                <li>Assembly Required: No</li>
+                            </ul>
+                        </div>
+                         <div id="reviews-panel" class="hidden space-y-5 text-sm text-gray-700 leading-relaxed">
+                            <p>Customer reviews will be displayed here. Include star ratings, review text, author, date, etc.</p>
+                            <div class="border-t pt-4">
+                                <div class="flex items-center mb-1">
+                                    <span class="font-medium mr-2">Jane D.</span>
+                                    <span class="text-xs text-gray-500"> - March 20, 2025</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="lucide lucide-star filled text-base" aria-hidden="true">&#xea27;</i>
+                                    <i class="lucide lucide-star filled text-base" aria-hidden="true">&#xea27;</i>
+                                    <i class="lucide lucide-star filled text-base" aria-hidden="true">&#xea27;</i>
+                                    <i class="lucide lucide-star filled text-base" aria-hidden="true">&#xea27;</i>
+                                    <i class="lucide lucide-star text-gray-300 text-base" aria-hidden="true">&#xea27;</i>
+                                </div>
+                                <p>Excellent chair, very comfortable and looks great!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Colors</h3>
+                        <div class="flex items-center space-x-3">
+                            <button aria-label="Color Navy" class="color-swatch active h-8 w-8 rounded-full bg-gray-900 border border-gray-300 focus:outline-none" data-color="Navy"></button>
+                            <button aria-label="Color Gray" class="color-swatch h-8 w-8 rounded-full bg-gray-500 border border-gray-300 focus:outline-none" data-color="Gray"></button>
+                            <button aria-label="Color Beige" class="color-swatch h-8 w-8 rounded-full bg-yellow-100 border border-gray-300 focus:outline-none" data-color="Beige"></button>
+                            </div>
+                    </div>
+
+                    <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <p class="text-3xl font-bold text-gray-900 flex-shrink-0">Rs 3,200</p> <button type="submit" class="w-full sm:w-auto flex-grow flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-700 transition-colors">
+                            Shop Now
+                            <i class="lucide lucide-chevron-right ml-1 text-base" aria-hidden="true">&#xe60b;</i>
+                        </button>
+                    </div>
+
+                     <div class="mt-6 flex items-center justify-start space-x-6 text-sm">
+                        <button class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+                            <i class="lucide lucide-sliders-horizontal mr-1.5 text-base" aria-hidden="true">&#xea1f;</i> Customize
+                        </button>
+                        <button class="flex items-center text-gray-600 hover:text-gray-900 transition-colors wishlist-button-detail">
+                            <i class="lucide lucide-heart mr-1.5 text-base" aria-hidden="true">&#xe8da;</i> Favorites
+                        </button>
+                        <button class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+                             <i class="lucide lucide-share-2 mr-1.5 text-base" aria-hidden="true">&#xe9ca;</i> Share
+                        </button>
+                    </div>
+
+                </section>
+
+            </div> </div>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-16 pb-8 mt-16 lg:mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mx-auto text-center mb-12">
+                 <h3 class="text-xl font-semibold mb-2">Stay Connected</h3>
+                 <p class="text-gray-600 mb-4 text-sm">Get exclusive previews, updates, and inspiration straight to your inbox.</p>
+                 <form class="flex flex-col sm:flex-row gap-2">
+                     <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 sm:text-sm" required>
+                     <button type="submit" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition-colors">Subscribe</button>
+                 </form>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-8">
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Shop</h4>
+                    <ul class="space-y-2"><li><a href="#" class="text-gray-600 hover:text-gray-900">Womenswear</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Menswear</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Collections</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Accessories</a></li></ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Support</h4>
+                    <ul class="space-y-2"><li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">FAQ</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Shipping</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Returns</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Size Guide</a></li></ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Company</h4>
+                    <ul class="space-y-2"><li><a href="#" class="text-gray-600 hover:text-gray-900">About Us</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Sustainability</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Careers</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Press</a></li></ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Connect</h4>
+                    <ul class="space-y-2"><li><a href="#" class="text-gray-600 hover:text-gray-900">Instagram</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Facebook</a></li><li><a href="#" class="text-gray-600 hover:text-gray-900">Pinterest</a></li></ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-300 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 Qolorr. All rights reserved.</p>
+                <div class="mt-2 space-x-4"><a href="#" class="hover:text-gray-900">Privacy Policy</a><span>&middot;</span><a href="#" class="hover:text-gray-900">Terms of Service</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Image Gallery Logic
+        const mainImage = document.getElementById('main-product-image');
+        const thumbnailButtons = document.querySelectorAll('.thumbnail-button');
+        thumbnailButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const newImageSrc = button.dataset.image;
+                if (newImageSrc && mainImage) {
+                    mainImage.src = newImageSrc;
+                    mainImage.alt = button.querySelector('img')?.alt.replace('Thumbnail', 'Main View') || 'Product Image'; // Update alt text
+
+                    // Optional: Highlight active thumbnail
+                    thumbnailButtons.forEach(btn => btn.querySelector('img')?.classList.remove('border-gray-900'));
+                    button.querySelector('img')?.classList.add('border-gray-900');
+                }
+            });
+            // Set initial active border
+            if (button.dataset.image === mainImage?.src) {
+                 button.querySelector('img')?.classList.add('border-gray-900');
+            }
+        });
+
+        // Tab Switching Logic
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-content > div');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetPanelId = button.dataset.target;
+
+                // Hide all panels
+                tabPanels.forEach(panel => panel.classList.add('hidden'));
+                // Deactivate all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Show target panel
+                const targetPanel = document.getElementById(targetPanelId);
+                if (targetPanel) {
+                    targetPanel.classList.remove('hidden');
+                }
+                // Activate clicked button
+                button.classList.add('active');
+            });
+        });
+
+        // Color Swatch Logic
+        const colorSwatches = document.querySelectorAll('.color-swatch');
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const selectedColor = swatch.dataset.color;
+                console.log('Selected color:', selectedColor); // Replace with actual logic
+
+                // Update active state visual
+                colorSwatches.forEach(s => s.classList.remove('active'));
+                swatch.classList.add('active');
+            });
+        });
+
+         // Wishlist Button Toggle (Detail Page)
+        const wishlistButtonDetail = document.querySelector('.wishlist-button-detail');
+        if (wishlistButtonDetail) {
+            wishlistButtonDetail.addEventListener('click', () => {
+                const heartIcon = wishlistButtonDetail.querySelector('.lucide-heart');
+                heartIcon?.classList.toggle('filled');
+                console.log('Detail page wishlist button clicked!');
+            });
+        }
+
+
+        // Icon mapping (ensure icons render correctly)
+        document.querySelectorAll('.lucide-search').forEach(el => el.textContent = '\u{f3c7}');
+        document.querySelectorAll('.lucide-shopping-bag').forEach(el => el.textContent = '\u{f3e1}');
+        document.querySelectorAll('.lucide-arrow-left').forEach(el => el.textContent = '\u{f141}');
+        document.querySelectorAll('.lucide-star').forEach(el => el.textContent = '\u{f448}');
+        document.querySelectorAll('.lucide-heart').forEach(el => el.textContent = '\u{f273}');
+        document.querySelectorAll('.lucide-share-2').forEach(el => el.textContent = '\u{f3e9}');
+        document.querySelectorAll('.lucide-sliders-horizontal').forEach(el => el.textContent = '\u{f42f}');
+        document.querySelectorAll('.lucide-chevron-right').forEach(el => el.textContent = '\u{f19b}');
+
+    </script>
+
+</body>
+</html>
