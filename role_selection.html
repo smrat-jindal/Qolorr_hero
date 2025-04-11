@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Role - Qolorr</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.25rem; /* Default icon size */
+        line-height: 1;
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Icon content mapping */
+      .lucide-user:before { content: "\f477"; }
+      .lucide-store:before { content: "\f44f"; } /* Store icon for Brand */
+      .lucide-megaphone:before { content: "\f314"; } /* Megaphone for Influencer */
+      .lucide-arrow-right:before { content: "\f142"; }
+
+      /* Styles for image panel transition */
+      #auth-image-panel {
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.7s ease-in-out;
+      }
+
+      /* Styles for role selection cards */
+      .role-card {
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .role-card:hover, .role-card.selected {
+        border-color: #4f46e5; /* Indigo-600 */
+        box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+      }
+      .role-card.selected .role-icon-bg {
+         background-color: #e0e7ff; /* Indigo-100 */
+         color: #4338ca; /* Indigo-700 */
+      }
+       .role-card.selected .lucide-arrow-right {
+         opacity: 1;
+       }
+       .role-card .lucide-arrow-right {
+         opacity: 0;
+         transition: opacity 0.2s ease-in-out;
+       }
+        .role-card:hover .lucide-arrow-right {
+         opacity: 0.5;
+       }
+
+
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // accent: '#yourColorCode',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-100">
+
+    <div class="flex min-h-screen">
+
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-16 bg-white">
+            <div class="w-full max-w-md">
+                <h1 class="text-2xl sm:text-3xl font-semibold mb-3 text-gray-900">
+                    Join Us!
+                </h1>
+                <p class="text-base text-gray-600 mb-8">
+                    To begin this journey, tell us what type of account you'd be opening.
+                </p>
+
+                <div class="space-y-4">
+                    <button class="role-card w-full flex items-center p-4 sm:p-5 border border-gray-300 rounded-lg text-left bg-white hover:border-indigo-500" data-role="consumer">
+                        <div class="role-icon-bg flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-50 text-indigo-600 mr-4">
+                             <i class="lucide lucide-user text-xl" aria-hidden="true">&#xf007;</i>
+                        </div>
+                        <div class="flex-grow">
+                            <p class="font-medium text-gray-900">User</p>
+                            <p class="text-sm text-gray-500">Personal account to manage all your activities.</p>
+                        </div>
+                         <i class="lucide lucide-arrow-right text-indigo-600 ml-4 flex-shrink-0" aria-hidden="true">&#xe5c8;</i>
+                    </button>
+
+                    <button class="role-card w-full flex items-center p-4 sm:p-5 border border-gray-300 rounded-lg text-left bg-white hover:border-indigo-500" data-role="brand">
+                         <div class="role-icon-bg flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-50 text-blue-600 mr-4">
+                             <i class="lucide lucide-store text-xl" aria-hidden="true">&#xf07a;</i>
+                        </div>
+                        <div class="flex-grow">
+                            <p class="font-medium text-gray-900">Brand</p>
+                            <p class="text-sm text-gray-500">Own or belong to a company, this is for you.</p>
+                        </div>
+                         <i class="lucide lucide-arrow-right text-indigo-600 ml-4 flex-shrink-0" aria-hidden="true">&#xe5c8;</i>
+                    </button>
+
+                    <button class="role-card w-full flex items-center p-4 sm:p-5 border border-gray-300 rounded-lg text-left bg-white hover:border-indigo-500" data-role="influencer">
+                         <div class="role-icon-bg flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-green-50 text-green-600 mr-4">
+                             <i class="lucide lucide-megaphone text-xl" aria-hidden="true">&#xe8f9;</i>
+                        </div>
+                        <div class="flex-grow">
+                            <p class="font-medium text-gray-900">Marketers & Influencer</p>
+                            <p class="text-sm text-gray-500">Grow your audience or belong to a company, this is for you.</p>
+                        </div>
+                         <i class="lucide lucide-arrow-right text-indigo-600 ml-4 flex-shrink-0" aria-hidden="true">&#xe5c8;</i>
+                    </button>
+                </div>
+
+                 <div class="mt-8 text-center">
+                     <button id="continue-button" disabled class="w-full sm:w-auto inline-flex justify-center py-2.5 px-8 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                         Continue
+                     </button>
+                 </div>
+
+            </div>
+        </div>
+
+        <div id="auth-image-panel" class="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12">
+             <div class="absolute inset-0 bg-black opacity-50 z-0"></div> <div class="relative z-10 text-center"> <h2 class="text-4xl font-bold text-white leading-tight max-w-md mx-auto">
+                     Pick your role: What's your Qolorr vibe?
+                 </h2>
+                 <div class="absolute bottom-12 left-12 h-16 w-16 border-4 border-white rounded-full opacity-50"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Image Slideshow Logic ---
+        const imagePanel = document.getElementById('auth-image-panel');
+        const images = [
+            'https://placehold.co/1000x1200/111827/ffffff?text=Join+Qolorr',
+            'https://placehold.co/1000x1200/4b5563/ffffff?text=Select+Your+Path',
+            'https://placehold.co/1000x1200/9ca3af/1f2937?text=Define+Your+Style',
+            'https://placehold.co/1000x1200/6d28d9/f5f3ff?text=Experience+Luxury'
+        ];
+        let currentImageIndex = 0;
+        const slideInterval = 5000;
+        const fadeDuration = 700;
+
+        function changeBackgroundImage() {
+            if (!imagePanel) return;
+            imagePanel.style.opacity = '0';
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                imagePanel.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+                imagePanel.style.opacity = '1';
+            }, fadeDuration);
+        }
+
+        if (imagePanel) {
+             imagePanel.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+             imagePanel.style.opacity = '1';
+             setInterval(changeBackgroundImage, slideInterval);
+        }
+        // --- End Image Slideshow Logic ---
+
+        // --- Role Selection Logic ---
+        const roleCards = document.querySelectorAll('.role-card');
+        const continueButton = document.getElementById('continue-button');
+        let selectedRole = null;
+
+        roleCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected state from all cards
+                roleCards.forEach(c => c.classList.remove('selected'));
+                // Add selected state to the clicked card
+                card.classList.add('selected');
+                // Store the selected role
+                selectedRole = card.dataset.role;
+                // Enable the continue button
+                if (continueButton) {
+                    continueButton.disabled = false;
+                }
+                console.log('Selected Role:', selectedRole); // For debugging
+            });
+        });
+
+        // Optional: Handle continue button click
+        if (continueButton) {
+            continueButton.addEventListener('click', () => {
+                if (selectedRole) {
+                    alert(`Proceeding as: ${selectedRole}`);
+                    // Add navigation logic here, e.g.:
+                    // window.location.href = `/next-step?role=${selectedRole}`;
+                }
+            });
+        }
+         // --- End Role Selection Logic ---
+
+         // Icon mapping (ensure icons render correctly)
+         document.querySelectorAll('.lucide-user').forEach(el => el.textContent = '\u{f477}');
+         document.querySelectorAll('.lucide-store').forEach(el => el.textContent = '\u{f44f}');
+         document.querySelectorAll('.lucide-megaphone').forEach(el => el.textContent = '\u{f314}');
+         document.querySelectorAll('.lucide-arrow-right').forEach(el => el.textContent = '\u{f142}');
+
+    </script>
+
+</body>
+</html>
