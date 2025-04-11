@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - Qolorr</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.25rem;
+        line-height: 1;
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .lucide-eye:before { content: "\f22a"; }
+      .lucide-eye-off:before { content: "\f22b"; }
+
+      input:focus {
+        outline: none;
+        border-color: #4f46e5; /* Indigo-600 */
+        box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+      }
+
+      .toggle-auth-button {
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+      }
+      .toggle-auth-button.active {
+        background-color: #1f2937; /* gray-800 */
+        color: white;
+      }
+      .toggle-auth-button:not(.active) {
+         background-color: white;
+         color: #4b5563; /* gray-600 */
+      }
+       .toggle-auth-button:not(.active):hover {
+         background-color: #f9fafb; /* gray-50 */
+       }
+
+      /* Styles for image panel transition */
+      #auth-image-panel {
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.7s ease-in-out; /* Smooth fade transition for opacity */
+      }
+
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // accent: '#yourColorCode',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-100">
+
+    <div class="flex min-h-screen">
+
+        <div id="auth-image-panel" class="hidden lg:flex lg:w-1/2 relative items-end p-12">
+             <div class="absolute inset-0 bg-black opacity-40 z-0"></div> <div class="relative z-10"> <a href="index.html" class="block mb-6">
+                    <span class="text-white text-3xl font-bold tracking-tight">QOLORR</span>
+                 </a>
+                 <h2 class="text-3xl font-semibold text-white leading-tight">
+                     Let's get you in! Your QOLORR experience starts here.
+                 </h2>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 bg-white">
+            <div class="w-full max-w-md">
+
+                <div class="flex border border-gray-300 rounded-md mb-8 overflow-hidden">
+                    <button id="toggle-login-btn" class="flex-1 py-2.5 px-4 text-sm font-medium toggle-auth-button active" data-target="login-form">
+                        Log In
+                    </button>
+                    <button id="toggle-signup-btn" class="flex-1 py-2.5 px-4 text-sm font-medium toggle-auth-button" data-target="signup-form">
+                        Sign Up
+                    </button>
+                </div>
+
+                <div id="login-form" class="">
+                    <form action="#" method="POST" class="space-y-5">
+                        <div>
+                            <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+                            <input type="email" id="login-email" name="email" required autocomplete="email"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                   placeholder="you@example.com">
+                        </div>
+                        <div class="relative">
+                            <div class="flex justify-between items-baseline">
+                                <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                                <a href="#" class="text-xs font-medium text-indigo-600 hover:underline">Forgot password?</a>
+                            </div>
+                            <input type="password" id="login-password" name="password" required autocomplete="current-password"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pr-10"
+                                   placeholder="Enter your password">
+                             <button type="button" class="absolute inset-y-0 right-0 top-6 flex items-center px-3 text-gray-500 hover:text-gray-700 password-toggle-button" aria-label="Toggle password visibility">
+                                <i class="lucide lucide-eye text-lg" data-icon-hide="lucide-eye-off" data-icon-show="lucide-eye"></i>
+                            </button>
+                        </div>
+
+                        <button type="submit"
+                                class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
+                            Log in
+                        </button>
+                        </form>
+
+                    <div class="my-6 flex items-center justify-center">
+                        <span class="px-2 bg-white text-xs text-gray-500">OR</span>
+                        <div class="flex-grow border-t border-gray-200"></div>
+                        <div class="flex-grow border-t border-gray-200"></div>
+                    </div>
+
+                    <button type="button" class="w-full flex items-center justify-center py-2.5 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                        <svg class="h-5 w-5 mr-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.532 24.554C47.532 22.921 47.393 21.353 47.115 19.85H24.238V28.601H37.336C36.711 31.333 35.055 33.61 32.66 35.17V40.76H40.03C44.744 36.441 47.532 31.01 47.532 24.554Z" fill="#4285F4"/><path d="M24.238 48C30.74 48 36.204 45.878 40.03 42.76L32.66 37.17C30.447 38.663 27.58 39.53 24.238 39.53C18.198 39.53 13.06 35.648 11.078 30.07H3.56V35.79C7.388 43.01 15.21 48 24.238 48Z" fill="#34A853"/><path d="M11.078 30.07C10.562 28.578 10.284 26.978 10.284 25.3C10.284 23.623 10.562 22.023 11.078 20.53V14.81H3.56C1.288 19.29 0 24.554 0 30.07C0 35.588 1.288 40.852 3.56 45.33L11.078 39.61V30.07Z" fill="#FBBC05"/><path d="M24.238 9.47C27.916 9.47 31.17 10.75 33.71 13.19L40.246 6.65C36.204 2.97 30.74 0.848 24.238 0.848C15.21 0.848 7.388 5.838 3.56 13.06L11.078 18.78C13.06 13.2 18.198 9.47 24.238 9.47Z" fill="#EA4335"/></svg>
+                        Sign in with Google
+                    </button>
+                </div>
+
+
+                <div id="signup-form" class="hidden">
+                     <form action="#" method="POST" class="space-y-5">
+                        <div>
+                            <label for="signup-username" class="block text-sm font-medium text-gray-700 mb-1">User name</label>
+                            <input type="text" id="signup-username" name="username" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                   placeholder="Choose a username">
+                        </div>
+                        <div>
+                            <label for="signup-email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+                            <input type="email" id="signup-email" name="email" required autocomplete="email"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                   placeholder="you@example.com">
+                        </div>
+                        <div class="relative">
+                            <label for="signup-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input type="password" id="signup-password" name="password" required autocomplete="new-password"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pr-10"
+                                   placeholder="Enter your password">
+                            <button type="button" class="absolute inset-y-0 right-0 top-6 flex items-center px-3 text-gray-500 hover:text-gray-700 password-toggle-button" aria-label="Toggle password visibility">
+                                <i class="lucide lucide-eye text-lg" data-icon-hide="lucide-eye-off" data-icon-show="lucide-eye"></i>
+                            </button>
+                        </div>
+                         <p class="text-xs text-gray-500">Use 8 or more characters with a mix of letters, numbers & symbols.</p>
+
+                        <div class="flex items-start">
+                            <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded mt-0.5">
+                            <label for="terms" class="ml-2 block text-xs text-gray-600">
+                                By creating an account, you agree to our
+                                <a href="#" class="font-medium text-indigo-600 hover:underline">Terms of use</a> and
+                                <a href="#" class="font-medium text-indigo-600 hover:underline">Privacy Policy</a>.
+                            </label>
+                        </div>
+
+                        <div class="h-16 bg-gray-100 border border-gray-300 rounded-md flex items-center justify-center text-sm text-gray-500">
+                            CAPTCHA Placeholder (e.g., hCaptcha/reCAPTCHA)
+                        </div>
+
+                        <button type="submit"
+                                class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
+                            Create an account
+                        </button>
+                         </form>
+
+                    <div class="my-6 flex items-center justify-center">
+                        <span class="px-2 bg-white text-xs text-gray-500">OR</span>
+                        <div class="flex-grow border-t border-gray-200"></div>
+                        <div class="flex-grow border-t border-gray-200"></div>
+                    </div>
+
+                    <button type="button" class="w-full flex items-center justify-center py-2.5 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                        <svg class="h-5 w-5 mr-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.532 24.554C47.532 22.921 47.393 21.353 47.115 19.85H24.238V28.601H37.336C36.711 31.333 35.055 33.61 32.66 35.17V40.76H40.03C44.744 36.441 47.532 31.01 47.532 24.554Z" fill="#4285F4"/><path d="M24.238 48C30.74 48 36.204 45.878 40.03 42.76L32.66 37.17C30.447 38.663 27.58 39.53 24.238 39.53C18.198 39.53 13.06 35.648 11.078 30.07H3.56V35.79C7.388 43.01 15.21 48 24.238 48Z" fill="#34A853"/><path d="M11.078 30.07C10.562 28.578 10.284 26.978 10.284 25.3C10.284 23.623 10.562 22.023 11.078 20.53V14.81H3.56C1.288 19.29 0 24.554 0 30.07C0 35.588 1.288 40.852 3.56 45.33L11.078 39.61V30.07Z" fill="#FBBC05"/><path d="M24.238 9.47C27.916 9.47 31.17 10.75 33.71 13.19L40.246 6.65C36.204 2.97 30.74 0.848 24.238 0.848C15.21 0.848 7.388 5.838 3.56 13.06L11.078 18.78C13.06 13.2 18.198 9.47 24.238 9.47Z" fill="#EA4335"/></svg>
+                        Sign in with Google
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const toggleButtons = document.querySelectorAll('.toggle-auth-button');
+        const passwordToggleButtons = document.querySelectorAll('.password-toggle-button');
+        const imagePanel = document.getElementById('auth-image-panel'); // Get the image panel
+
+        // --- Image Slideshow Logic ---
+        const images = [
+            'https://placehold.co/1000x1200/111827/ffffff?text=Qolorr+Style+1',
+            'https://placehold.co/1000x1200/4b5563/ffffff?text=Qolorr+Elegance',
+            'https://placehold.co/1000x1200/9ca3af/1f2937?text=Qolorr+Luxury',
+            'https://placehold.co/1000x1200/6d28d9/f5f3ff?text=Qolorr+Vibrant'
+        ];
+        let currentImageIndex = 0;
+        const slideInterval = 5000; // Time in ms (5 seconds)
+        const fadeDuration = 700; // Must match CSS transition duration
+
+        function changeBackgroundImage() {
+            if (!imagePanel) return; // Exit if panel not found
+
+            // 1. Fade out
+            imagePanel.style.opacity = '0';
+
+            // 2. Wait for fade out, then change image and fade in
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length; // Cycle through images
+                imagePanel.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+                // 3. Fade in
+                imagePanel.style.opacity = '1';
+            }, fadeDuration); // Wait for fade-out transition to complete
+        }
+
+        // Set initial image and start slideshow (only if panel exists)
+        if (imagePanel) {
+             imagePanel.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+             imagePanel.style.opacity = '1'; // Ensure it's visible initially
+             setInterval(changeBackgroundImage, slideInterval);
+        }
+        // --- End Image Slideshow Logic ---
+
+
+        // --- Form Switching Logic ---
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetFormId = button.dataset.target;
+                loginForm.classList.add('hidden');
+                signupForm.classList.add('hidden');
+                const targetForm = document.getElementById(targetFormId);
+                if (targetForm) {
+                    targetForm.classList.remove('hidden');
+                }
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+        // --- End Form Switching Logic ---
+
+
+        // --- Password Visibility Toggle Logic ---
+        passwordToggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const passwordInput = button.previousElementSibling;
+                const icon = button.querySelector('i.lucide');
+                const showIcon = icon.dataset.iconShow;
+                const hideIcon = icon.dataset.iconHide;
+
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove(showIcon);
+                    icon.classList.add(hideIcon);
+                    icon.textContent = getIconCodepoint(hideIcon);
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove(hideIcon);
+                    icon.classList.add(showIcon);
+                     icon.textContent = getIconCodepoint(showIcon);
+                }
+            });
+        });
+
+        function getIconCodepoint(iconClass) {
+            if (iconClass === 'lucide-eye') return '\u{f22a}';
+            if (iconClass === 'lucide-eye-off') return '\u{f22b}';
+            return '';
+        }
+
+        passwordToggleButtons.forEach(button => {
+            const icon = button.querySelector('i.lucide');
+            const showIcon = icon.dataset.iconShow;
+             icon.textContent = getIconCodepoint(showIcon);
+         });
+         // --- End Password Visibility Toggle Logic ---
+
+    </script>
+
+</body>
+</html>
